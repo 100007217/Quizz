@@ -16,6 +16,7 @@
             font-size: 16px;
             cursor: pointer;
             text-align: center;
+            border-radius: 50px;
         }
         
         .pregunta {
@@ -27,6 +28,7 @@
             font-size: 16px;
             cursor: pointer;
             text-align: center;
+            border-radius: 50px;
         }
     </style>
 </head>
@@ -35,13 +37,13 @@
     <center>
         <h1>QUIZZ</h1>
         <div id="pregunta" class="pregunta">Pregunta</div>
-        <div id="repsuestas">Repsuestas
+        <div id="repsuestas">
             <br>
-            <button class="respuestas" id="respuesta1"></button>
-            <button class="respuestas" id="respuesta2"></button>
+            <button class="respuestas" onclick="seleccionarRespuesta(this.id)" id="respuesta1"></button>
+            <button class="respuestas" onclick="seleccionarRespuesta(this.id)" id="respuesta2"></button>
             <br>
-            <button class="respuestas" id="respuesta3"></button>
-            <button class="respuestas" id="respuesta4"></button>
+            <button class="respuestas" onclick="seleccionarRespuesta(this.id)" id="respuesta3"></button>
+            <button class="respuestas" onclick="seleccionarRespuesta(this.id)" id="respuesta4"></button>
         </div>
     </center>
 </body>

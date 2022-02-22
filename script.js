@@ -31,8 +31,8 @@ getJSON('https://opentdb.com/api.php?amount=2&category=9&difficulty=easy&type=mu
                 random = Math.floor(Math.random() * 4);
                 respuestas[random].innerHTML = datos[0]['correct_answer']
                 posiciones_disponibles.splice(random, 1);
-                console.log("He metido en la posicon " + random + " la repsuesta correcta que es " + datos[0]['correct_answer'])
-                console.log("Quedan las repsuestas " + posiciones_disponibles)
+                //console.log("He metido en la posicon " + random + " la repsuesta correcta que es " + datos[0]['correct_answer'])
+                //console.log("Quedan las repsuestas " + posiciones_disponibles)
             }
             insertar_respuesta_correcta();
 
@@ -45,4 +45,14 @@ getJSON('https://opentdb.com/api.php?amount=2&category=9&difficulty=easy&type=mu
         }
         rellenar_respuestas_incorrectas(posiciones_disponibles)
     }
-);
+)
+
+function seleccionarRespuesta(id) {
+    respuesta_seleccionada = document.getElementById(id)
+    if (respuesta_seleccionada.innerHTML == datos[0]['correct_answer']) {
+        respuesta_seleccionada.style.backgroundColor = "lightgreen"
+    } else {
+        respuesta_seleccionada.style.backgroundColor = "lightcoral"
+        setTimeout(() => { console.log("World!"); }, 2000);
+    }
+}
