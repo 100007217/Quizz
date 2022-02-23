@@ -39,12 +39,17 @@
         <div id="pregunta" class="pregunta">Pregunta</div>
         <div id="repsuestas">
             <br>
-            <button class="respuestas" onclick="seleccionarRespuesta(this.id)" id="respuesta1"></button>
-            <button class="respuestas" onclick="seleccionarRespuesta(this.id)" id="respuesta2"></button>
+            <button class="respuestas" onclick="seleccionarRespuesta(this.id,numero_pregunta)" id="respuesta1"></button>
+            <button class="respuestas" onclick="seleccionarRespuesta(this.id,numero_pregunta)" id="respuesta2"></button>
             <br>
-            <button class="respuestas" onclick="seleccionarRespuesta(this.id)" id="respuesta3"></button>
-            <button class="respuestas" onclick="seleccionarRespuesta(this.id)" id="respuesta4"></button>
+            <button class="respuestas" onclick="seleccionarRespuesta(this.id,numero_pregunta)" id="respuesta3"></button>
+            <button class="respuestas" onclick="seleccionarRespuesta(this.id,numero_pregunta)" id="respuesta4"></button>
         </div>
+        <div>
+            <button onclick="siguientePregunta(numero_pregunta)">NEXT</button>
+        </div>
+        Respuestas correctas
+        <p id="num_correctas"></p>
     </center>
 </body>
 <script src="./script.js"></script>
