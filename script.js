@@ -55,4 +55,9 @@ function seleccionarRespuesta(id) {
         respuesta_seleccionada.style.backgroundColor = "lightcoral"
         setTimeout(() => { console.log("World!"); }, 2000);
     }
+    var respuestas = document.getElementsByClassName('respuestas')
+    //document.getElementById('cmdt_1_1i').removeAttribute("onclick");
+    for (let i = 0; i < 4; i++) {
+    	respuestas[i].removeAttribute("onclick")
+    }
 }
