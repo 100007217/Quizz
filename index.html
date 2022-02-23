@@ -19,10 +19,46 @@
             border-radius: 50px;
         }
         
+        .respuestas:hover {
+            width: 30%;
+            border: none;
+            background-color: rgb(116, 116, 116);
+            padding: 28px 28px;
+            margin: 10px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 50px;
+        }
+        
         .pregunta {
             width: 30%;
             border: none;
             background-color: lightblue;
+            padding: 28px 28px;
+            margin: 10px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 50px;
+        }
+        
+        #start {
+            width: 30%;
+            border: none;
+            background-color: rgb(235, 77, 240);
+            padding: 28px 28px;
+            margin: 10px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 50px;
+        }
+        
+        #next {
+            width: 30%;
+            border: none;
+            background-color: rgb(240, 237, 77);
             padding: 28px 28px;
             margin: 10px 10px;
             font-size: 16px;
@@ -36,7 +72,10 @@
 <body>
     <center>
         <h1>QUIZZ</h1>
-        <div id="pregunta" class="pregunta">Pregunta</div>
+        <div id="start" onclick="empezarQuiz()">Empezar Quizz</div>
+        <p id="showpreguntas"></p>
+        <div id="pregunta" class="pregunta">Pregunta </div>
+
         <div id="repsuestas">
             <br>
             <button class="respuestas" onclick="seleccionarRespuesta(this.id,numero_pregunta)" id="respuesta1"></button>
@@ -50,8 +89,12 @@
         </div>
         Respuestas correctas
         <p id="num_correctas"></p>
+        <p id="tiempo_final"></p>
+        <p><span id="seconds">00</span>:<span id="tens">00</span></p>
+        </div>
     </center>
 </body>
 <script src="./script.js"></script>
+<script src="./timer.js"></script>
 
 </html>

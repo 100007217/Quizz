@@ -44,15 +44,16 @@ var respuestas = document.getElementsByClassName('respuestas')
 
 
 function insertar_respuesta_correcta(numero_pregunta, datos) {
-    console.log(datos)
+    document.getElementById('showpreguntas').innerHTML = 'Pregunta Nº: ' + (numero_pregunta + 1)
+        //console.log(datos)
     var posiciones_disponibles = [0, 1, 2, 3]
     random = Math.floor(Math.random() * 4);
     pregunta.innerHTML = datos[numero_pregunta]['question']
     respuestas[random].innerHTML = datos[numero_pregunta]['correct_answer']
         //console.log(respuestas[random])
     posiciones_disponibles.splice(random, 1);
-    console.log("He metido en la posicon " + random + " la repsuesta correcta que es " + datos[numero_pregunta]['correct_answer'])
-        //console.log("Quedan las repsuestas " + posiciones_disponibles)
+    //console.log("He metido en la posicon " + random + " la repsuesta correcta que es " + datos[numero_pregunta]['correct_answer'])
+    //console.log("Quedan las repsuestas " + posiciones_disponibles)
     rellenar_respuestas_incorrectas(posiciones_disponibles, numero_pregunta)
 }
 
@@ -62,7 +63,6 @@ function rellenar_respuestas_incorrectas(posiciones_disponibles, numero_pregunta
         respuestas[posicion].innerHTML = datos[numero_pregunta]['incorrect_answers'][i]
     }
 }
-insertar_respuesta_correcta(numero_pregunta, datos)
 
 function seleccionarRespuesta(id, numero_pregunta) {
     respuesta_seleccionada = document.getElementById(id)
@@ -78,7 +78,10 @@ function seleccionarRespuesta(id, numero_pregunta) {
     var respuestas = document.getElementsByClassName('respuestas')
         //document.getElementById('cmdt_1_1i').removeAttribute("onclick");
     for (let i = 0; i < 4; i++) {
-        respuestas[i].removeAttribute("onclick")
+        //respuestas[i].removeAttribute("onclick")
+        respuestas[i].onclick = function() {
+            return false;
+        }
     }
 }
 
@@ -92,7 +95,20 @@ function siguientePregunta() {
 
     }
     numero_pregunta.value = document.getElementById('next')
-    console.log(numero_pregunta)
+
     numero_pregunta += 1
+
+    if (numero_pregunta < 10) {
+        insertar_respuesta_correcta(numero_pregunta, datos)
+    } else {
+        stop()
+    }
+
+}
+
+function empezarQuiz() {
+
+    startCrono()
     insertar_respuesta_correcta(numero_pregunta, datos)
+
 }
