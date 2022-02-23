@@ -31,7 +31,7 @@ function pillar_datos() {
     )
 }
 var xhReq = new XMLHttpRequest();
-xhReq.open("GET", 'https://opentdb.com/api.php?amount=2&category=9&difficulty=easy&type=multiple', false);
+xhReq.open("GET", 'https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple', false);
 xhReq.send(null);
 var jsonObject = JSON.parse(xhReq.responseText);
 datos = jsonObject['results']
@@ -82,7 +82,7 @@ function seleccionarRespuesta(id, numero_pregunta) {
     }
 }
 
-function siguientePregunta(numero_pregunta) {
+function siguientePregunta() {
     for (let i = 0; i < 4; i++) {
         //elem.setAttribute("onclick", "alert('blah');");
         //respuestas[i].setAttribute('onclick', 'seleccionarRespuesta(respuesta' + (i + 1) + ',' + numero_pregunta + ')')
@@ -91,6 +91,8 @@ function siguientePregunta(numero_pregunta) {
         respuestas[i].style.backgroundColor = "lightgray"
 
     }
+    numero_pregunta.value = document.getElementById('next')
+    console.log(numero_pregunta)
     numero_pregunta += 1
     insertar_respuesta_correcta(numero_pregunta, datos)
 }
