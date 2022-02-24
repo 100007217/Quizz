@@ -52,8 +52,8 @@ function insertar_respuesta_correcta(numero_pregunta, datos) {
     respuestas[random].innerHTML = datos[numero_pregunta]['correct_answer']
         //console.log(respuestas[random])
     posiciones_disponibles.splice(random, 1);
-    //console.log("He metido en la posicon " + random + " la repsuesta correcta que es " + datos[numero_pregunta]['correct_answer'])
-    //console.log("Quedan las repsuestas " + posiciones_disponibles)
+    console.log("He metido en la posicon " + random + " la repsuesta correcta que es " + datos[numero_pregunta]['correct_answer'])
+        //console.log("Quedan las repsuestas " + posiciones_disponibles)
     rellenar_respuestas_incorrectas(posiciones_disponibles, numero_pregunta)
 }
 
@@ -69,11 +69,20 @@ function seleccionarRespuesta(id, numero_pregunta) {
     respuestas_correctas = document.getElementById('num_correctas')
     if (respuesta_seleccionada.innerHTML == datos[numero_pregunta]['correct_answer']) {
         respuesta_seleccionada.style.backgroundColor = "lightgreen"
-        respuestas_correctas.innerHTML += '&#9989;'
+        if (numero_pregunta < 9) {
+            respuestas_correctas.innerHTML += '&#9989; | '
+        } else {
+            respuestas_correctas.innerHTML += '&#9989;'
+        }
+
 
     } else {
         respuesta_seleccionada.style.backgroundColor = "lightcoral"
-        respuestas_correctas.innerHTML += '&#10060;'
+        if (numero_pregunta < 9) {
+            respuestas_correctas.innerHTML += '&#10060; | '
+        } else {
+            respuestas_correctas.innerHTML += '&#10060;'
+        }
     }
     var respuestas = document.getElementsByClassName('respuestas')
         //document.getElementById('cmdt_1_1i').removeAttribute("onclick");
@@ -102,8 +111,17 @@ function siguientePregunta() {
         insertar_respuesta_correcta(numero_pregunta, datos)
     } else {
         stop()
+        numero_pregunta = document.getElementById('next')
+        numero_pregunta.innerHTML = "REINICIAR QUIZZ"
+        numero_pregunta.style.backgroundColor = "rgb(231, 132, 235)"
+        numero_pregunta.onclick = function() {
+            location.reload();
+        };
     }
+}
 
+function start_again() {
+    alert("hi")
 }
 
 function empezarQuiz() {

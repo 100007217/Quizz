@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Concurso</title>
     <style>
+        * {
+            font-family: 'BRONSON', sans-serif;
+        }
+        
         .respuestas {
             width: 30%;
             border: none;
@@ -32,7 +36,7 @@
         }
         
         .pregunta {
-            width: 30%;
+            width: 58%;
             border: none;
             background-color: lightblue;
             padding: 28px 28px;
@@ -46,7 +50,7 @@
         #start {
             width: 30%;
             border: none;
-            background-color: rgb(235, 77, 240);
+            background-color: rgb(231, 132, 235);
             padding: 28px 28px;
             margin: 10px 10px;
             font-size: 16px;
@@ -59,6 +63,18 @@
             width: 30%;
             border: none;
             background-color: rgb(240, 237, 77);
+            padding: 28px 28px;
+            margin: 10px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 50px;
+        }
+        
+        #next:hover {
+            width: 30%;
+            border: none;
+            background-color: rgb(206, 177, 50);
             padding: 28px 28px;
             margin: 10px 10px;
             font-size: 16px;
@@ -89,6 +105,7 @@
         </div>
         Respuestas correctas
         <p id="num_correctas"></p>
+        <p style="display: none;">Marca</p>
         <p id="tiempo_final"></p>
         <p><span id="seconds">00</span>:<span id="tens">00</span></p>
         </div>
