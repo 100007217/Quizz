@@ -77,6 +77,15 @@ function seleccionarRespuesta(id, numero_pregunta) {
 
 
     } else {
+        //console.log(datos[numero_pregunta]['correct_answer'])
+        //console.log(document.getElementById('respuesta' + '1').innerHTML)
+        for (let i = 1; i < 5; i++) {
+            if (document.getElementById('respuesta' + i).innerHTML == datos[numero_pregunta]['correct_answer']) {
+                document.getElementById('respuesta' + i).style.backgroundColor = "lightgreen"
+            }
+        }
+
+
         respuesta_seleccionada.style.backgroundColor = "lightcoral"
         if (numero_pregunta < 9) {
             respuestas_correctas.innerHTML += '&#10060; | '
